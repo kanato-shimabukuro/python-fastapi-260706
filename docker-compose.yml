@@ -1,0 +1,19 @@
+# Docker Compose 構成
+# 作成: kanato-shimabukuro
+
+services:
+  python:
+    image: python:3.13-slim
+
+    volumes:
+      - .:/python               # 左: ホスト, 右: コンテナ（ディレクトリ同期）
+    working_dir: /python/source # 起動時の初期位置
+
+    ports:
+      - "8000:8000" # Web用ポート
+
+    tty: true        # 終了させない
+    stdin_open: true # 入力を受け付け
+
+    # 起動時に依存パッケージをインストールし、そのまま待機
+    command: /bin/bash -c "pip install -r ../requirements.txt && /bin/bash"

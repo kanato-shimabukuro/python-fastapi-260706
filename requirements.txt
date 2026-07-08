@@ -1,0 +1,6 @@
+# Python 依存パッケージ
+# 作成: kanato-shimabukuro
+
+python-dotenv # envファイル用
+fastapi       # Webフレームワーク本体
+uvicorn       # FastAPIを動かすためのサーバー
